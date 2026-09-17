@@ -22,7 +22,6 @@ class MainViewController: UIViewController {
         cellRegestration()
  
         
-        tableView.backgroundColor = .systemGroupedBackground
        
     }
     func showTheSheet(){
@@ -52,10 +51,11 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-    3
+        3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-1
+            
+        1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,4 +76,6 @@ extension MainViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected")
     }
+    
+   
 }

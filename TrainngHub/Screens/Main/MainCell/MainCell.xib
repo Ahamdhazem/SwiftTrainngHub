@@ -20,7 +20,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="nQT-zU-fR9">
                         <rect key="frame" x="0.0" y="0.0" width="500" height="96"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMV-r8-bWG">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMV-r8-bWG" userLabel="imageContiner">
                                 <rect key="frame" x="8" y="15" width="70" height="71"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ues-tE-B0B">
@@ -60,10 +60,6 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.21861447948987822" green="0.71801036834716792" blue="0.6470220667514105" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="bJW-U2-uSJ" secondAttribute="trailing" id="5LS-y8-FUI"/>
-                                            <constraint firstAttribute="bottom" secondItem="bJW-U2-uSJ" secondAttribute="bottom" id="ArF-r8-NNo"/>
-                                            <constraint firstItem="bJW-U2-uSJ" firstAttribute="leading" secondItem="Mmr-UU-Eds" secondAttribute="leading" id="J6O-ej-Q8k"/>
-                                            <constraint firstItem="bJW-U2-uSJ" firstAttribute="top" secondItem="Mmr-UU-Eds" secondAttribute="top" id="K3X-Ea-gtb"/>
                                             <constraint firstAttribute="bottom" secondItem="bJW-U2-uSJ" secondAttribute="bottom" id="LCl-Gf-zJt"/>
                                             <constraint firstAttribute="trailing" secondItem="bJW-U2-uSJ" secondAttribute="trailing" id="S6M-hS-eax"/>
                                             <constraint firstItem="bJW-U2-uSJ" firstAttribute="leading" secondItem="Mmr-UU-Eds" secondAttribute="leading" id="eWG-2w-13C"/>
@@ -90,9 +86,13 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="HMV-r8-bWG" firstAttribute="height" secondItem="2hU-KY-7iy" secondAttribute="height" id="uh8-WQ-Gv2"/>
+                        </constraints>
                         <directionalEdgeInsets key="directionalLayoutMargins" top="15" leading="8" bottom="10" trailing="8"/>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="nQT-zU-fR9" secondAttribute="trailing" id="5BT-gQ-Y5h"/>
                     <constraint firstItem="nQT-zU-fR9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Nk2-7k-GeV"/>
@@ -101,6 +101,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <directionalEdgeInsets key="directionalLayoutMargins" top="10" leading="8" bottom="10" trailing="8"/>
             <connections>
                 <outlet property="eReload" destination="bJW-U2-uSJ" id="cKD-aE-n3R"/>

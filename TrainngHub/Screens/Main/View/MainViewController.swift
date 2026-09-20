@@ -74,7 +74,11 @@ extension MainViewController:UITableViewDelegate{
    
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
+        let vc = EreloadViewController()
+        //vc.modalPresentationStyle = .fullScreen
+        //present(vc, animated: true)
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
    

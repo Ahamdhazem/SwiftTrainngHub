@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,7 +40,7 @@
                                     <constraint firstItem="Ues-tE-B0B" firstAttribute="top" secondItem="HMV-r8-bWG" secondAttribute="top" id="qbw-wt-TwH"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2hU-KY-7iy">
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2hU-KY-7iy">
                                 <rect key="frame" x="85" y="15" width="407" height="71"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmr-UU-Eds" customClass="CustemView" customModule="TrainngHub" customModuleProvider="target">
@@ -58,7 +59,7 @@
                                                 <color key="highlightedColor" red="0.85423785360000004" green="0.86422113300000003" blue="0.89417097089999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.21861447948987822" green="0.71801036834716792" blue="0.6470220667514105" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="e-reoladColoer"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="bJW-U2-uSJ" secondAttribute="bottom" id="LCl-Gf-zJt"/>
                                             <constraint firstAttribute="trailing" secondItem="bJW-U2-uSJ" secondAttribute="trailing" id="S6M-hS-eax"/>
@@ -71,14 +72,14 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Title Materail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmv-O3-xCe">
-                                        <rect key="frame" x="0.0" y="24.333333333333336" width="98.333333333333329" height="22.333333333333336"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Title Materail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmv-O3-xCe">
+                                        <rect key="frame" x="0.0" y="24.333333333333336" width="98.333333333333329" height="20.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="253" text="Lorem Ipsum is simply Lorem Ips Lorem ipsus" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQn-uY-xfH">
-                                        <rect key="frame" x="0.0" y="50.666666666666671" width="344.66666666666669" height="20.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Lorem Ipsum is simply Lorem Ips Lorem ipsus" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQn-uY-xfH">
+                                        <rect key="frame" x="0.0" y="48.666666666666664" width="344.66666666666669" height="22.333333333333336"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -86,9 +87,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="HMV-r8-bWG" firstAttribute="height" secondItem="2hU-KY-7iy" secondAttribute="height" id="uh8-WQ-Gv2"/>
-                        </constraints>
                         <directionalEdgeInsets key="directionalLayoutMargins" top="15" leading="8" bottom="10" trailing="8"/>
                     </stackView>
                 </subviews>
@@ -112,8 +110,11 @@
     </objects>
     <resources>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
+        <namedColor name="e-reoladColoer">
+            <color red="0.27450980392156865" green="0.58823529411764708" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="placeholderTextColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

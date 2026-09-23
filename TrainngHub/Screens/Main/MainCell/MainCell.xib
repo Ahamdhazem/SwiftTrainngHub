@@ -102,8 +102,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <directionalEdgeInsets key="directionalLayoutMargins" top="10" leading="8" bottom="10" trailing="8"/>
             <connections>
-                <outlet property="eReload" destination="bJW-U2-uSJ" id="cKD-aE-n3R"/>
                 <outlet property="eReloadView" destination="Mmr-UU-Eds" id="jLa-Fa-SXL"/>
+                <outlet property="materialType" destination="bJW-U2-uSJ" id="cKD-aE-n3R"/>
             </connections>
             <point key="canvasLocation" x="116.03053435114504" y="154.92957746478874"/>
         </tableViewCell>

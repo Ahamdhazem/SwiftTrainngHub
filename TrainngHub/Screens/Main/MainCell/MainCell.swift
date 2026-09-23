@@ -11,20 +11,25 @@ class MainCell: UITableViewCell {
     
     @IBOutlet var eReloadView: CustemView!
     
-    @IBOutlet var eReload: UILabel!
+    @IBOutlet var materialType: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         
         eReloadView.layer.cornerRadius = eReloadView.bounds.height / 2
         
-                contentView.layer.cornerRadius = 16.0
-                
-                contentView.layer.maskedCorners = [
-                    .layerMinXMinYCorner, // Top Left
-                    .layerMaxXMaxYCorner  // Bottom Right
-                ]
-                contentView.layer.masksToBounds = true
-
+        contentView.layer.cornerRadius = 16.0
+        
+        contentView.layer.maskedCorners = [
+            .layerMinXMinYCorner, // Top Left
+            .layerMaxXMaxYCorner  // Bottom Right
+        ]
+        contentView.layer.masksToBounds = true
+        
+    }
+    
+    func configer(_ data : MainData){
+        materialType.text = data.MaterialType
+        
     }
     }
     

@@ -9,12 +9,21 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    
+
     @IBOutlet var tableView: UITableView!
     @IBOutlet var texFeaildStack: CustemStack!
     @IBOutlet var imageContaner: CustemView!
     @IBAction func OnTap(_ sender: Any) {
         showTheSheet()
     }
+    @IBOutlet var searchFeaild: UITextField!
+    @IBAction func onStartSearch(_ sender: Any) {
+        let query = searchFeaild.text ?? "all"
+        viewModel.materialFilter([query])
+        tableView.reloadData()
+    }
+    let viewModel = MainViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         imageContaner.layer.cornerRadius =  imageContaner.bounds.height / 2
@@ -25,15 +34,15 @@ class MainViewController: UIViewController {
        
     }
     func showTheSheet(){
-        
-        let sheetVC = FilterSheetViewController()
-        
-        if let sheet = sheetVC.sheetPresentationController {
-            sheet.detents = [.medium(), .large()]
-            sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 24
-         }
-        present(sheetVC, animated: true, completion: nil)
+        let sheetVC = FilterSheetViewController( mode: .main)
+            if let sheet = sheetVC.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.prefersGrabberVisible = true
+                sheet.preferredCornerRadius = 24
+              // sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+             }
+            sheetVC.delegate = self
+            present(sheetVC, animated: true, completion: nil)
 
     }
     
@@ -51,7 +60,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        3
+        viewModel.filteredData.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             
@@ -64,6 +73,7 @@ extension MainViewController: UITableViewDataSource{
                 for: indexPath
             ) as! MainCell
 
+        cell.configer( self.viewModel.filteredData[indexPath.section])
             return cell
     }
     
@@ -75,11 +85,16 @@ extension MainViewController:UITableViewDelegate{
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = EreloadViewController()
-        //vc.modalPresentationStyle = .fullScreen
-        //present(vc, animated: true)
-        
+
         navigationController?.pushViewController(vc, animated: true)
     }
     
    
+}
+
+extension MainViewController :OnSheetDismisedDelegate{
+    func didSelectFilters(_ firstQueris: [String], _ typeContent: [String]) {
+        viewModel.materialFilter(firstQueris)
+        tableView.reloadData()
+    }
 }

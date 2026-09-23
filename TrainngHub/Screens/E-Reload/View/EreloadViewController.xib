@@ -72,6 +72,9 @@
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="style" value="circular"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="onFilterTap:" destination="-1" eventType="touchUpInside" id="Ap6-Ln-0vH"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

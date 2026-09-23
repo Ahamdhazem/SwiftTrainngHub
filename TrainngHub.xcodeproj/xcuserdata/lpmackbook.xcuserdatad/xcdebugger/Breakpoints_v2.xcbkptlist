@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "4F77ED27-6B75-4DC4-9B55-D97C1453E9E1"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A41A580-F54E-49FD-8472-EF2D385E504D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "ReloadViewMode"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A0250177-4C42-46BD-8CBE-16EB3B4C5892"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C75282A-4159-4842-AF07-3703CF8E1586"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/E-Reload/View/EreloadViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "cellRejester()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "18B02F7E-16D5-4460-B483-0A98C58DACBA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/E-Reload/View/EreloadViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "EreloadViewController"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "319D543B-489B-48A0-BCB0-7D54F57FA10E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/E-Reload/View/EreloadViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "EreloadViewController"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1236663D-7720-4360-81D3-E1A5E65E3037"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "ReloadViewMode"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B8039D3-2597-4D6B-B1DE-E1B2F656E0B3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/E-Reload/View/EreloadViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "EreloadViewController"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1135156B-303F-4B36-BC15-6FEF333A9223"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "ReloadViewMode"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5BFBB424-FF7E-46AE-927A-209453F2C680"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "filter(_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5BFBB424-FF7E-46AE-927A-209453F2C680 - bf5d35d2a32c0ccc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TrainngHub.ReloadViewMode.filter(Swift.Array&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "TrainngHub.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/TrainngHub/TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63">
+               </Location>
+               <Location
+                  uuid = "5BFBB424-FF7E-46AE-927A-209453F2C680 - 51aac8cd51c9f8a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.String in TrainngHub.ReloadViewMode.filter(Swift.Array&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "TrainngHub.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/TrainngHub/TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB39D98B-EB16-4F63-ADB7-C712F64398AA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "filter(_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB39D98B-EB16-4F63-ADB7-C712F64398AA - bf5d35d2a32c0ccc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TrainngHub.ReloadViewMode.filter(Swift.Array&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "TrainngHub.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/TrainngHub/TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63">
+               </Location>
+               <Location
+                  uuid = "EB39D98B-EB16-4F63-ADB7-C712F64398AA - 51aac8cd51c9f8a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.String in TrainngHub.ReloadViewMode.filter(Swift.Array&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "TrainngHub.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/TrainngHub/TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AAD45E5A-EF8E-4E1F-81FC-47207BCA02B9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrainngHub/Screens/FilterSheet/View/FilterSheetViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

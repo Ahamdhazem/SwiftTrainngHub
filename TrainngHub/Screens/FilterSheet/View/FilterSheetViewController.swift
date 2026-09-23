@@ -1,0 +1,245 @@
+//
+//  FilterSheetViewController.swift
+//  TrainngHub
+//
+//  Created by LP Mackbook on 15/09/2026.
+//
+
+import UIKit
+
+protocol  OnSheetDismisedDelegate : AnyObject {
+    
+    func didSelectFilters( _ firstQueris:[String],_ secondQueris:[String])
+}
+
+class FilterSheetViewController: UIViewController {
+    @IBOutlet var topCollection: UICollectionView!
+    @IBOutlet var bottomCollection: UICollectionView!
+    @IBOutlet var firstFilterLabel: UILabel!
+    @IBOutlet var ContentTypeStack: UIStackView!
+    @IBOutlet var secondFilterLabel: UILabel!
+    @IBAction func ApplayingFilters(_ sender: Any) {
+        delegate?.didSelectFilters(firstFilterOptions, secondFilterOptions)
+        self.dismiss(animated: true)
+    }
+    
+    var firstFilterOptions  : [String]  = [] {
+        didSet{
+            if(firstFilterOptions.isEmpty){
+                topDefaultSelction()
+
+            }
+        }
+    }
+    var secondFilterOptions :[String] = [] {
+        didSet{
+            if(secondFilterOptions.isEmpty){
+                bottomDefualSelection()
+            }
+        }
+    }
+
+     let defaultSelectionindex = IndexPath(item: 0, section: 0)
+    //static  var lastSelectedIndex : [IndexPath] = [defaultSelectionindex]
+    
+    let mode : SheetMode!
+    init (mode :SheetMode){
+
+        self.mode = mode
+
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    let materialTypes = ["All","B2B","E-Reload"]
+    let categories = ["All","E-Voucher","Subscription"]
+    let contentTypes = ["All","PDF File","Link", "Video"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        CellResjstration()
+        
+        topCollection.reloadData()
+        bottomCollection.reloadData()
+        topDefaultSelction()
+        bottomDefualSelection()
+        topCollection.allowsMultipleSelection = true;
+        bottomCollection.allowsMultipleSelection = true
+
+    }
+    
+    func bottomDefualSelection(){
+      
+        if ( self.mode == .reload){
+            bottomCollection?.selectItem(at: defaultSelectionindex, animated: false, scrollPosition: [])
+        }
+    }
+    
+    func topDefaultSelction(){
+        topCollection.selectItem(at: defaultSelectionindex, animated: false, scrollPosition: [])
+    }
+    func CellResjstration(){
+        let nib = UINib(nibName: "FilterCell", bundle: nil)
+        
+        topCollection.register(nib, forCellWithReuseIdentifier: FilterCell.identifier)
+        bottomCollection.register(nib, forCellWithReuseIdentifier: FilterCell.identifier)
+        
+        if self.mode == .main {
+            firstFilterLabel.text = "Material Type"
+           ContentTypeStack.isHidden = true
+        }
+    }
+
+    weak var delegate : OnSheetDismisedDelegate?
+    
+
+}
+
+extension FilterSheetViewController : UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch(mode){
+        case .main : if collectionView === topCollection {
+                            return materialTypes.count
+                        } else {
+                            return 0
+                        }
+            
+        case .reload : if collectionView === topCollection {
+            return categories.count
+        } else  {
+            return contentTypes.count
+        }
+        case .none:
+            return 0
+        }
+       
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
+        switch(mode){
+        case .main : if collectionView === topCollection {
+            cell.configer(materialTypes[indexPath.row])
+                        } else {
+                            cell.configer(materialTypes[indexPath.row])
+                        }
+            
+        case .reload : if collectionView === topCollection {
+            cell.configer(categories[indexPath.row])
+        } else  {
+            cell.configer(contentTypes[indexPath.row])
+        }
+        case .none:
+           print("none")
+        }
+            return cell
+    }
+}
+
+func settopCollectionDefultSelection(){
+    
+}
+
+extension FilterSheetViewController : UICollectionViewDelegate{
+    
+
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        switch(mode){
+           
+        case .main :  firstFilterOptions.popLast()
+            
+        case .reload : if collectionView === topCollection  {
+            firstFilterOptions.popLast()
+            } else { secondFilterOptions.popLast()}
+       
+        case .none:
+            print("none")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch(mode){
+           
+        case .main :  if(materialTypes[indexPath.item] == "All") {firstFilterOptions=[]} else { firstFilterOptions.append(materialTypes[indexPath.item])}
+            
+        case .reload : if collectionView === topCollection  {
+            if(categories[indexPath.item] == "All"){
+                firstFilterOptions = []
+            }
+            else {firstFilterOptions.append(categories[indexPath.item])}
+        } else if(contentTypes[indexPath.item] == "All"){
+            secondFilterOptions = []
+        }
+                    
+                    else  {
+            secondFilterOptions.append(contentTypes[indexPath.item])
+        }
+        case .none:
+            print("none")
+        }
+        
+        
+        let selectedIndex :Int = indexPath.item
+
+            if selectedIndex == 0 {
+
+                // Deselect other cells
+                for indexPath in collectionView.indexPathsForSelectedItems ?? [] {
+                    if indexPath.item != 0 {
+                        collectionView.deselectItem(
+                            at: indexPath,
+                            animated: true
+                        )
+                    }
+                }
+
+            } else {
+
+                collectionView.deselectItem(
+                    at: IndexPath(item: 0, section: 0),
+                    animated: true
+                )
+            }
+    }
+        
+
+        
+    }
+    
+    extension FilterSheetViewController: UICollectionViewDelegateFlowLayout {
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            //        var textWdith : Int!;
+            //
+            //    switch(mode){
+            //    case .main : textWdith = materialTypes[indexPath.row].count*20
+            //
+            //    case .reload : if collectionView === topCollection {
+            //        textWdith = categories[indexPath.row].count * 20
+            //    } else  {
+            //        textWdith = contentTypes[indexPath.row].count * 20
+            //    }
+            //    case .none:
+            //       print("none")
+            //    }
+            return CGSize(width: 120, height: 50)
+        }
+        
+        
+        
+        
+        
+            func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+                return 0
+            }
+        
+        
+        
+    }
+

@@ -10,6 +10,8 @@ import UIKit
 
 
 class EreloadViewController: UIViewController {
+    
+
     @IBOutlet var searchStack: UIStackView!
     @IBOutlet var tabelView: UITableView!
     
@@ -26,16 +28,19 @@ class EreloadViewController: UIViewController {
     
     @IBAction func onFilterTap(_ sender: Any) {
             
-        let sheetVC = FilterSheetViewController( mode: .reload)
-            if let sheet = sheetVC.sheetPresentationController {
-                sheet.detents = [.medium()]
-                sheet.prefersEdgeAttachedInCompactHeight = true
-                    sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-                sheet.prefersGrabberVisible = true
-                sheet.preferredCornerRadius = 24
-             }
-            sheetVC.delegate = self
-            present(sheetVC, animated: true)
+        let filterVC = FilterSheetViewController( mode: .reload)
+        filterVC.delegate = self
+
+        if let sheet = filterVC.sheetPresentationController {
+            sheet.detents = [.medium()] // Or [.medium()]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        filterVC.modalPresentationStyle = .overFullScreen
+        filterVC.modalTransitionStyle = .coverVertical
+        present(filterVC, animated: true)
+        
+            
 
     
     }
@@ -75,7 +80,8 @@ extension EreloadViewController : UITableViewDataSource{
 }
 //func reloadsFilter(_ searchText : String , _ filteringOn : String){
 extension EreloadViewController :OnSheetDismisedDelegate{
-    func didSelectFilters(_ category: [String], _ typeContent: [String]) {
+
+    func didSelectFilters(_ category: [SelectedItems], _ typeContent: [SelectedItems]) {
       print("category: \(category) , content: \(typeContent)")
 //        ViewModel.reloadsFilter(typeContent,"content")
 //        ViewModel.reloadsFilter(category,"category")

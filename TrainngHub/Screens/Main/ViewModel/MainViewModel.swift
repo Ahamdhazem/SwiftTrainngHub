@@ -23,27 +23,23 @@ class MainViewModel{
     
     lazy var filteredData = data
     
-    func materialFilter(_ queris : [String] ){
-        
-        let cleanQuris = queris.map {item in item.lowercased()}
-        print("cleanQuris \(cleanQuris)")
-        
-        if(queris.count<=0){
-            filteredData = data
-        }else
-        if(queris[0] == "all" || queris[0].isEmpty ){
+    func materialFilter(_ queris : [SelectedItems] ){
+        if(queris.isEmpty || queris[0].text.lowercased() == "all" ){
             filteredData = data
             return
-        }else if(queris.count==1){ // Search bar
-            filteredData = data.filter{
-                $0.MaterialType.lowercased().hasPrefix(queris[0])
-            }
         }
-        else  {
+        
+        let cleanQuris = queris.map {item in item.text.lowercased()}
+        print("cleanQuris \(cleanQuris)")
+        
+
            
-            filteredData = data.filter{// filter Sheet more Than one type
-                cleanQuris.contains($0.MaterialType.lowercased())
+        filteredData = data.filter { item in
+            cleanQuris.contains { q in
+                item.MaterialType.lowercased().hasPrefix(q.lowercased())
             }
+        
+
            
         }
 

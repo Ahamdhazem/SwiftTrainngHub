@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
     }
     @IBOutlet var searchFeaild: UITextField!
     @IBAction func onStartSearch(_ sender: Any) {
-        let query = searchFeaild.text ?? "all"
+        let query : SelectedItems =  SelectedItems(searchFeaild?.text ?? "")
         viewModel.materialFilter([query])
         tableView.reloadData()
     }
@@ -29,20 +29,37 @@ class MainViewController: UIViewController {
         imageContaner.layer.cornerRadius =  imageContaner.bounds.height / 2
         texFeaildStack.layer.cornerRadius =  texFeaildStack.bounds.height / 2
         cellRegestration()
- 
-        
-       
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        sheetVC.firstFilterOptions = []
+//        sheetVC.secondFilterOptions = []
+    }
+    
+    let sheetVC = FilterSheetViewController( mode: .main)
     func showTheSheet(){
-        let sheetVC = FilterSheetViewController( mode: .main)
-            if let sheet = sheetVC.sheetPresentationController {
-                sheet.detents = [.medium()]
-                sheet.prefersGrabberVisible = true
-                sheet.preferredCornerRadius = 24
-              // sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-             }
-            sheetVC.delegate = self
-            present(sheetVC, animated: true, completion: nil)
+
+        sheetVC.modalPresentationStyle = .pageSheet
+        sheetVC.modalPresentationStyle = .pageSheet
+
+        if let sheet = sheetVC.sheetPresentationController {
+
+            sheet.detents = [
+                .custom(identifier: .init("custom300")) { context in
+                    300
+                }
+            ]
+
+            sheet.prefersPageSizing = false
+
+            sheet.preferredCornerRadius = 24
+            sheet.prefersGrabberVisible = true
+        }
+
+        sheetVC.delegate = self
+
+        present(sheetVC, animated: true)
 
     }
     
@@ -93,7 +110,7 @@ extension MainViewController:UITableViewDelegate{
 }
 
 extension MainViewController :OnSheetDismisedDelegate{
-    func didSelectFilters(_ firstQueris: [String], _ typeContent: [String]) {
+    func didSelectFilters(_ firstQueris: [SelectedItems], _ typeContent: [SelectedItems]) {
         viewModel.materialFilter(firstQueris)
         tableView.reloadData()
     }

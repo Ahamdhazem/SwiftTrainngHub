@@ -46,9 +46,9 @@
             filePath = "TrainngHub/Screens/E-Reload/View/EreloadViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "cellRejester()"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -62,10 +62,10 @@
             filePath = "TrainngHub/Screens/E-Reload/View/EreloadViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "EreloadViewController"
-            landmarkType = "21">
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,10 +78,10 @@
             filePath = "TrainngHub/Screens/E-Reload/View/EreloadViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "EreloadViewController"
-            landmarkType = "21">
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "didSelectFilters(_:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -110,10 +110,10 @@
             filePath = "TrainngHub/Screens/E-Reload/View/EreloadViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "EreloadViewController"
-            landmarkType = "21">
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "didSelectFilters(_:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -136,7 +136,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5BFBB424-FF7E-46AE-927A-209453F2C680"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
@@ -146,36 +146,6 @@
             endingLineNumber = "63"
             landmarkName = "filter(_:_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5BFBB424-FF7E-46AE-927A-209453F2C680 - bf5d35d2a32c0ccc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrainngHub.ReloadViewMode.filter(Swift.Array&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "TrainngHub.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Applications/TrainngHub/TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63">
-               </Location>
-               <Location
-                  uuid = "5BFBB424-FF7E-46AE-927A-209453F2C680 - 51aac8cd51c9f8a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; Swift.String in TrainngHub.ReloadViewMode.filter(Swift.Array&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "TrainngHub.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Applications/TrainngHub/TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,36 +162,6 @@
             endingLineNumber = "63"
             landmarkName = "filter(_:_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EB39D98B-EB16-4F63-ADB7-C712F64398AA - bf5d35d2a32c0ccc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TrainngHub.ReloadViewMode.filter(Swift.Array&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "TrainngHub.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Applications/TrainngHub/TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63">
-               </Location>
-               <Location
-                  uuid = "EB39D98B-EB16-4F63-ADB7-C712F64398AA - 51aac8cd51c9f8a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; Swift.String in TrainngHub.ReloadViewMode.filter(Swift.Array&lt;Swift.String&gt;, Swift.Array&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "TrainngHub.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Applications/TrainngHub/TrainngHub/Screens/E-Reload/ViewModel/ReloadViewMode.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,8 +174,8 @@
             filePath = "TrainngHub/Screens/FilterSheet/View/FilterSheetViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>

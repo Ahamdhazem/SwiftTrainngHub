@@ -28,7 +28,7 @@ class FilterCell: UICollectionViewCell {
     func configer(_ latbelText : String){
         cellLabel.text = latbelText
         if (latbelText.lowercased() == "all"){
-            self.isSelected = true
+           // self.isSelected = true
             updateStyle()
         }
     }

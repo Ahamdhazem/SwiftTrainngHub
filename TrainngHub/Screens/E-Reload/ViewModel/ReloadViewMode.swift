@@ -56,12 +56,12 @@ class ReloadViewMode {
         }
     }
     
-    func filter(_ categois : [String] , _ contentTypes : [String]){
+    func filter(_ categois : [SelectedItems] , _ contentTypes : [SelectedItems]){
         print("From filter funcation")
         print("\(categois)  \(contentTypes)")
         
-        let categoryQuery = categois.map{$0.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
-        let contentQuery = contentTypes.map{$0.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
+        let categoryQuery = categois.map{$0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
+        let contentQuery = contentTypes.map{$0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
         
  
         var isCategorisEmtpy = categoryQuery.isEmpty

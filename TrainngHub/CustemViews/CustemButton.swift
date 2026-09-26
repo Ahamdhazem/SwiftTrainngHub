@@ -1,6 +1,15 @@
 import UIKit
 @IBDesignable
 class CustemButton: UIButton {
+    //AI
+    override var isHighlighted: Bool {
+            get {
+                return super.isHighlighted
+            }
+            set {
+            }
+        }
+    //
     
     @IBInspectable var borderRadius: CGFloat {
         get {
@@ -30,9 +39,9 @@ class CustemButton: UIButton {
         get{ return _style}
         
         set{ _style = newValue
-           
-        }
-    }
+            configerStyle(_style)
+        }}
+ 
     
     func updateUI() {
         layer.cornerRadius = borderRadius
@@ -43,7 +52,7 @@ class CustemButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-     
+
         configerStyle(self._style)
           updateUI()
 
@@ -63,11 +72,14 @@ extension UIButton {
     }
     
     func primaryStyle() {
-            self.backgroundColor = .systemCyan
-            self.layer.cornerRadius = 8
-            self.layer.borderWidth = 0
-            self.alpha = 1.0
-            self.tintColor = .white
+        self.backgroundColor = .systemBlue
+        self.layer.cornerRadius =  bounds.height/2
+        self.layer.borderWidth = 0
+        self.clipsToBounds = true
+        self.tintColor = .white
+        self.setTitleColor(.white, for: .normal)
+       
+
         }
         
         func secondaryStyle() {
@@ -80,8 +92,8 @@ extension UIButton {
         
         func clearStyle() {
             self.backgroundColor = .clear
-            self.layer.cornerRadius = 0
-            self.layer.borderWidth = 0
+            self.tintColor = .black
+            self.setTitleColor(.black, for: .normal)
         }
         
         func roundedStyle() {

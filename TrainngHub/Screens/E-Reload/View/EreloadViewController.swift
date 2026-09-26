@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class EreloadViewController: UIViewController {
+class EreloadViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
 
     @IBOutlet var searchStack: UIStackView!
@@ -28,16 +28,19 @@ class EreloadViewController: UIViewController {
     
     @IBAction func onFilterTap(_ sender: Any) {
             
-        let filterVC = FilterSheetViewController( mode: .reload)
+        let filterVC = FilterSheetViewController( mode: .reload , ViewModel.sheetFilter)
         filterVC.delegate = self
-
+        filterVC.modalPresentationStyle = .custom
+        filterVC.transitioningDelegate = self
         if let sheet = filterVC.sheetPresentationController {
-            sheet.detents = [.medium()] // Or [.medium()]
-            sheet.prefersGrabberVisible = true
+            sheet.detents = [
+                .custom{ context in
+                    350
+                }
+            ]
         }
         
-        filterVC.modalPresentationStyle = .overFullScreen
-        filterVC.modalTransitionStyle = .coverVertical
+  
         present(filterVC, animated: true)
         
             
@@ -47,7 +50,7 @@ class EreloadViewController: UIViewController {
     
 
     
-    let ViewModel = ReloadViewMode()
+    let ViewModel = ReloadViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         cellRejester()
@@ -81,14 +84,11 @@ extension EreloadViewController : UITableViewDataSource{
 //func reloadsFilter(_ searchText : String , _ filteringOn : String){
 extension EreloadViewController :OnSheetDismisedDelegate{
 
-    func didSelectFilters(_ category: [SelectedItems], _ typeContent: [SelectedItems]) {
-      print("category: \(category) , content: \(typeContent)")
-//        ViewModel.reloadsFilter(typeContent,"content")
-//        ViewModel.reloadsFilter(category,"category")
-        
-        ViewModel.filter(category,typeContent)
+    func didSelectFilters() {
+        ViewModel.filter()
         tabelView.reloadData()
         
         
     }
 }
+

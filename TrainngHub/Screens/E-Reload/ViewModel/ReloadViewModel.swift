@@ -6,7 +6,18 @@
 //
 
 import Foundation
-class ReloadViewMode {
+class ReloadViewModel {
+    
+    var selectedCategoris : [SelectedItems]!
+    var selectedContentTyps : [SelectedItems]!
+    var sheetFilter   : SheetFilters!
+    
+    init () {
+        selectedCategoris = []
+        selectedContentTyps = []
+         sheetFilter = SheetFilters(selectedCategoris,selectedContentTyps)
+    }
+    
     let reloads : [Reload] = [
         Reload("E-Voucher","PDF File","document.viewfinder.fill"),
         Reload("E-Voucher","Video","movieclapper"),
@@ -56,16 +67,16 @@ class ReloadViewMode {
         }
     }
     
-    func filter(_ categois : [SelectedItems] , _ contentTypes : [SelectedItems]){
-        print("From filter funcation")
-        print("\(categois)  \(contentTypes)")
+    func filter(){
         
-        let categoryQuery = categois.map{$0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
-        let contentQuery = contentTypes.map{$0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
+        let categoryQuery = sheetFilter.firstFilterQurys.map{$0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
+        
+        
+        let contentQuery = (sheetFilter.secondFilterQuerys ?? []).map{$0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
         
  
-        var isCategorisEmtpy = categoryQuery.isEmpty
-        var isContentEmtpy = contentQuery.isEmpty
+        let isCategorisEmtpy = categoryQuery.isEmpty
+        let isContentEmtpy = contentQuery.isEmpty
         
         if(isCategorisEmtpy && isContentEmtpy){
             filteredReloads = reloads
@@ -88,3 +99,23 @@ class ReloadViewMode {
         }
     }
 
+//AI Viersion
+//
+//func filter() {
+//    // 1. Convert queries to Sets for O(1) fast lookup
+//    let categorySet = Set(sheetFilter.firstFilterQurys.map {
+//        $0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+//    })
+//    
+//    let contentSet = Set((sheetFilter.secondFilterQuerys ?? []).map {
+//        $0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+//    })
+//
+//    // 2. Filter in a single, readable pass
+//    filteredReloads = reloads.filter { item in
+//        let matchesCategory = categorySet.isEmpty || categorySet.contains(item.category.lowercased())
+//        let matchesContent = contentSet.isEmpty || contentSet.contains(item.typeContent.lowercased())
+//        
+//        return matchesCategory && matchesContent
+//    }
+//}

@@ -14,75 +14,62 @@ import UIKit
     @IBOutlet var firstFilterLabel: UILabel!
     @IBOutlet var ContentTypeStack: UIStackView!
     @IBOutlet var secondFilterLabel: UILabel!
-    @IBAction func ApplayingFilters(_ sender: Any) {
-        delegate?.didSelectFilters(firstFilterOptions, secondFilterOptions)
+     @IBOutlet var applyButton: CustemButton!
+     @IBAction func ApplayingFilters(_ sender: Any) {
+        delegate?.didSelectFilters()
+         clearButton.style = "clear"
+         applyButton.style = "primary"
         self.dismiss(animated: true)
     }
-     let viewModel : FilterSheetViewModel!
+
+     @IBOutlet var clearButton: CustemButton!
+     @IBAction func clearFilter(_ sender: Any) {
+         clearButton.style = "primary"
+         applyButton.style = "clear"
+         sheetFilters.firstFilterQurys = []
+         deselectAllItems(topCollection)
+         topDefaultSelction()
+         if(mode == .reload)
+         {
+             sheetFilters.secondFilterQuerys = []
+             deselectAllItems(bottomCollection)
+             bottomDefualSelection()
+         }
+     }
+   
+     
      let mode : SheetMode!
      
      let materialTypes = ["All","B2B","E-Reload"]
      let categories = ["All","E-Voucher","Subscription"]
      let contentTypes = ["All","PDF File","Link", "Video"]
      
-     var firstFilterOptions  : [SelectedItems] = []{
-        didSet{
-            if(firstFilterOptions.isEmpty){
-                topDefaultSelction()
-
-            }
-            switch(mode){
-                
-            case .main:
-                MainFilterViewModel.firstFilterIndex = firstFilterOptions
-            case .reload:
-                ReloadFilterViewModel.firstFilterIndex = firstFilterOptions
-            case .none:
-                print("none")
-            }
-         
-        }
-    }
-    var secondFilterOptions :[SelectedItems] = [] {
-        didSet{
-            if(secondFilterOptions.isEmpty){
-                bottomDefualSelection()
-            }
-                ReloadFilterViewModel.secondFilterIndex = secondFilterOptions
-       
-        }
-    }
-
+     
+     var sheetFilters : SheetFilters!
      let defaultSelectionindex = IndexPath(item: 0, section: 0)
-     init (mode :SheetMode){
+     init (mode :SheetMode , _ sheetFilters : SheetFilters){
          self.mode = mode
-         
-         
-         switch(mode){
-         case .main: viewModel = MainFilterViewModel()
-             self.firstFilterOptions = MainFilterViewModel.firstFilterIndex
-         case .reload: viewModel = ReloadFilterViewModel()
-             self.firstFilterOptions = ReloadFilterViewModel.firstFilterIndex
-             self.secondFilterOptions = ReloadFilterViewModel.secondFilterIndex
-         }
+         self.sheetFilters = sheetFilters
          super.init(nibName: nil, bundle: nil)
-         
-         
          
      }
      
      required init?(coder: NSCoder) {
          fatalError("init(coder:) has not been implemented")
      }
-     
+     func deselectAllItems( _ collectionView: UICollectionView) {
+         collectionView.indexPathsForSelectedItems?.forEach { indexPath in
+             collectionView.deselectItem(at: indexPath, animated: true)
+         }
+     }
      func configerSelectedCell(){
          
 
          switch(self.mode){
-         case  .main :  setSelectedCell(firstFilterOptions  ,topCollection)
+         case  .main :  setSelectedCell(sheetFilters.firstFilterQurys  ,topCollection)
          case  .reload :
-                        setSelectedCell(firstFilterOptions ,topCollection)
-                        setSelectedCell(secondFilterOptions ,bottomCollection)
+                        setSelectedCell(sheetFilters.firstFilterQurys  ,topCollection)
+                        setSelectedCell(sheetFilters.secondFilterQuerys ?? [] ,bottomCollection)
                         
          case .none:
              print("none")
@@ -111,28 +98,33 @@ import UIKit
          topDefaultSelction()
          bottomDefualSelection()
          configerSelectedCell()
+
      }
-     
+         override func viewWillAppear(_ animated: Bool){
+             super.viewWillAppear(animated)
+             topDefaultSelction()
+             bottomDefualSelection()
+
+         }
 
      
 
     
     
 
+     func topDefaultSelction(){
+         
+         if(sheetFilters.firstFilterQurys.isEmpty){
+             topCollection.selectItem(at: defaultSelectionindex, animated: false, scrollPosition: [])}
+         
+     }
     func bottomDefualSelection(){
         
-        if ( self.mode == .reload && secondFilterOptions.isEmpty){
+        if ( self.mode == .reload && (sheetFilters.secondFilterQuerys ?? []).isEmpty){
             bottomCollection?.selectItem(at: defaultSelectionindex, animated: false, scrollPosition: [])
         }}
     
-    func topDefaultSelction(){
-        
-        if(firstFilterOptions.isEmpty){
-        topCollection.selectItem(at: defaultSelectionindex, animated: false, scrollPosition: [])}
-        else {
-            
-        }
-    }
+
     func CellResjstration(){
         let nib = UINib(nibName: "FilterCell", bundle: nil)
         
@@ -151,19 +143,24 @@ import UIKit
 }
 
 extension FilterSheetViewController : UICollectionViewDataSource{
+    
+ 
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch(mode){
         case .main : if collectionView === topCollection {
-                            return materialTypes.count
-                        } else {
-                            return 0
-                        }
-            
-        case .reload : if collectionView === topCollection {
-            return categories.count
-        } else  {
-            return contentTypes.count
+            return materialTypes.count
+        } else {
+            return 0
         }
+            
+        case .reload:
+                    if collectionView == topCollection {
+                        return categories.count
+                    } else {
+
+                      return   contentTypes.count
+                    }
         case .none:
             return 0
         }
@@ -183,6 +180,7 @@ extension FilterSheetViewController : UICollectionViewDataSource{
             cell.configer(categories[indexPath.row])
         } else  {
             cell.configer(contentTypes[indexPath.row])
+                        
         }
         case .none:
            print("none")
@@ -203,11 +201,11 @@ extension FilterSheetViewController : UICollectionViewDelegate{
         
         switch(mode){
            
-        case .main : firstFilterOptions = firstFilterOptions.filter{$0.indexpath != indexPath}
+        case .main : sheetFilters.firstFilterQurys = sheetFilters.firstFilterQurys.filter{$0.indexpath != indexPath}
             
         case .reload : if collectionView === topCollection  {
-            firstFilterOptions = firstFilterOptions.filter{$0.indexpath != indexPath}
-        } else { secondFilterOptions = secondFilterOptions.filter{$0.indexpath != indexPath}}
+            sheetFilters.firstFilterQurys = sheetFilters.firstFilterQurys.filter{$0.indexpath != indexPath}
+        } else {sheetFilters.secondFilterQuerys = sheetFilters.secondFilterQuerys!.filter{$0.indexpath != indexPath}}
        
         case .none:
             print("none")
@@ -219,22 +217,21 @@ extension FilterSheetViewController : UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch(mode){
            
-        case .main :  if(materialTypes[indexPath.item] == "All") {firstFilterOptions=[]} else { firstFilterOptions.append( SelectedItems(materialTypes[indexPath.item] , indexPath)) }
+        case .main :  if(materialTypes[indexPath.item] == "All") {sheetFilters.firstFilterQurys=[]} else { sheetFilters.firstFilterQurys.append( SelectedItems(materialTypes[indexPath.item] , indexPath)) }
             
         case .reload : if collectionView === topCollection  {
             if(categories[indexPath.item] == "All"){
-                firstFilterOptions = []
+                sheetFilters.firstFilterQurys = []
             }
-            else {firstFilterOptions.append(
+            else {sheetFilters.firstFilterQurys.append(
                 SelectedItems(categories[indexPath.item] , indexPath)
                 )}
         } else if(contentTypes[indexPath.item] == "All"){
-            secondFilterOptions = []
+            sheetFilters.secondFilterQuerys = []
         }
-                    
                     else  {
                        
-            secondFilterOptions.append( SelectedItems(contentTypes[indexPath.item] , indexPath))
+                        sheetFilters.secondFilterQuerys!.append( SelectedItems(contentTypes[indexPath.item] , indexPath))
         }
         case .none:
             print("none")
@@ -273,13 +270,21 @@ extension FilterSheetViewController : UICollectionViewDelegate{
     extension FilterSheetViewController: UICollectionViewDelegateFlowLayout {
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    
-            return CGSize(width: 120, height: 50)
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-                return 0
+            
+            var width : CGFloat!
+            switch(mode){
+                
+            case .main:
+                 width = (collectionView.bounds.width - 20) / CGFloat(materialTypes.count)
+            case .reload: if(collectionView==topCollection){
+                 width = (collectionView.bounds.width - 20) / CGFloat(categories.count)
+            }else{
+                width = (collectionView.bounds.width - 50) / CGFloat(contentTypes.count)}
+            case .none:
+                print("")
             }
+            return CGSize(width: width, height: 50)}
+
         
         
         
@@ -287,5 +292,5 @@ extension FilterSheetViewController : UICollectionViewDelegate{
 
 protocol  OnSheetDismisedDelegate : AnyObject {
     
-    func didSelectFilters( _ firstQueris:[SelectedItems],_ secondQueris:[SelectedItems])
+    func didSelectFilters()
 }

@@ -8,6 +8,13 @@
 import Foundation
 
 class MainViewModel{
+    var selectedMaterial : [SelectedItems]!
+    var sheetFilter   : SheetFilters!
+    
+    init () {
+         selectedMaterial = []
+         sheetFilter = SheetFilters(selectedMaterial,nil)
+    }
     let data : [MainData] =
     [
         MainData("E-reload"),
@@ -23,13 +30,18 @@ class MainViewModel{
     
     lazy var filteredData = data
     
-    func materialFilter(_ queris : [SelectedItems] ){
-        if(queris.isEmpty || queris[0].text.lowercased() == "all" ){
+    func reset(){
+        sheetFilter.firstFilterQurys = []
+        materialFilter()
+    }
+    
+    func materialFilter(){
+        if(sheetFilter.firstFilterQurys.isEmpty || sheetFilter.firstFilterQurys[0].text.lowercased() == "all" ){
             filteredData = data
             return
         }
         
-        let cleanQuris = queris.map {item in item.text.lowercased()}
+        let cleanQuris = sheetFilter.firstFilterQurys.map {item in item.text.lowercased()}
         print("cleanQuris \(cleanQuris)")
         
 

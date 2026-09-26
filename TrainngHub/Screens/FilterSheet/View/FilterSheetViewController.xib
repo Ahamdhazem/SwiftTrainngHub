@@ -10,7 +10,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterSheetViewController" customModule="TrainngHub" customModuleProvider="target">
             <connections>
                 <outlet property="ContentTypeStack" destination="Jog-bx-qpv" id="B5a-mY-aRY"/>
+                <outlet property="applyButton" destination="Oto-Lc-kPF" id="kLC-Hp-L9Z"/>
                 <outlet property="bottomCollection" destination="EkO-5I-bSV" id="8ch-71-WUy"/>
+                <outlet property="clearButton" destination="Ues-eb-TNx" id="DoK-ED-pw7"/>
                 <outlet property="firstFilterLabel" destination="RIW-CX-6UW" id="T3N-zW-2I2"/>
                 <outlet property="topCollection" destination="Qef-Tl-qwC" id="bM6-9g-gHK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -86,7 +88,7 @@
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hA-1s-qRi">
+                                <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="1hA-1s-qRi">
                                     <rect key="frame" x="0.0" y="29.333333333333314" width="373" height="35"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EkO-5I-bSV">
@@ -119,21 +121,36 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wCz-P7-PaL">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wCz-P7-PaL">
                     <rect key="frame" x="10" y="252.66666666666666" width="373" height="86.666666666666657"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oto-Lc-kPF">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oto-Lc-kPF" customClass="CustemButton" customModule="TrainngHub" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="373" height="38.333333333333336"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Apply"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <bool key="isElement" value="NO"/>
+                            </accessibility>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Apply"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="style" value="primary"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="ApplayingFilters:" destination="-1" eventType="touchUpInside" id="s2k-W7-yIK"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ues-eb-TNx">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ues-eb-TNx" customClass="CustemButton" customModule="TrainngHub" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="48.333333333333343" width="373" height="38.333333333333343"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <bool key="isElement" value="NO"/>
+                            </accessibility>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Clear Filter"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="style" value="clear"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="clearFilter:" destination="-1" eventType="touchUpInside" id="8sx-CS-MMZ"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

@@ -23,13 +23,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-reload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2b-Wf-ckd">
-                    <rect key="frame" x="145" y="118.00000000000001" width="103" height="37.666666666666671"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <rect key="frame" x="148.33333333333334" y="118" width="96.666666666666657" height="30"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UPO-Kg-Yxa">
-                    <rect key="frame" x="10" y="175.66666666666666" width="373" height="35"/>
+                    <rect key="frame" x="10" y="168" width="373" height="35"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0CK-O0-jEB">
                             <rect key="frame" x="0.0" y="0.0" width="328" height="35"/>
@@ -89,7 +89,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uvM-YV-Qco">
-                    <rect key="frame" x="10" y="220.66666666666669" width="373" height="631.33333333333326"/>
+                    <rect key="frame" x="10" y="213" width="373" height="639"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="5gY-Qh-FhG"/>

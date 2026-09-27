@@ -39,7 +39,7 @@ import UIKit
    
      
      let mode : SheetMode!
-     
+     let sheetHeight: CGFloat
      let materialTypes = ["All","B2B","E-Reload"]
      let categories = ["All","E-Voucher","Subscription"]
      let contentTypes = ["All","PDF File","Link", "Video"]
@@ -47,9 +47,10 @@ import UIKit
      
      var sheetFilters : SheetFilters!
      let defaultSelectionindex = IndexPath(item: 0, section: 0)
-     init (mode :SheetMode , _ sheetFilters : SheetFilters){
+     init (mode :SheetMode , _ sheetFilters : SheetFilters,_ sheetHeight :CGFloat = 300){
          self.mode = mode
          self.sheetFilters = sheetFilters
+         self.sheetHeight = sheetHeight
          super.init(nibName: nil, bundle: nil)
          
      }
@@ -90,6 +91,7 @@ import UIKit
      override func viewDidLoad() {
          super.viewDidLoad()
 
+         view.clipsToBounds = true
          topCollection.allowsMultipleSelection = true;
          bottomCollection.allowsMultipleSelection = true
          CellResjstration()
@@ -99,6 +101,15 @@ import UIKit
          bottomDefualSelection()
          configerSelectedCell()
 
+     }
+     override func viewDidLayoutSubviews() {
+         super.viewDidLayoutSubviews()
+
+         view.layer.cornerRadius = view.bounds.height / 9
+         view.layer.maskedCorners = [
+             .layerMinXMinYCorner,
+             .layerMaxXMinYCorner
+         ]
      }
          override func viewWillAppear(_ animated: Bool){
              super.viewWillAppear(animated)
@@ -293,4 +304,20 @@ extension FilterSheetViewController : UICollectionViewDelegate{
 protocol  OnSheetDismisedDelegate : AnyObject {
     
     func didSelectFilters()
+}
+extension FilterSheetViewController: UIViewControllerTransitioningDelegate {
+
+    func presentationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController?,
+        source: UIViewController
+    ) -> UIPresentationController? {
+
+        // Return the presentation controller with the custom height
+        return BottomSheetPresentationController(
+            presentedViewController: presented,
+            presenting: presenting,
+            height: sheetHeight
+        )
+    }
 }

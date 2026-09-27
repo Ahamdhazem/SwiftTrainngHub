@@ -84,7 +84,7 @@ class ReloadViewModel {
             
             filteredReloads = reloads.filter({
                 (                categoryQuery.contains($0.category.lowercased()) &&
-                                 contentQuery.contains($0.typeContent.lowercased()))
+                    contentQuery.contains($0.typeContent.lowercased()))
             })
         } else if(isCategorisEmtpy){
             filteredReloads = reloads.filter({

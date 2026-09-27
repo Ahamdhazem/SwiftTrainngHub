@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
     
 
@@ -46,25 +46,17 @@ class MainViewController: UIViewController {
       //  viewModel.reset()
         tableView.reloadData()
     }
-   
+    var sheetHeight: CGFloat = 300
     func showTheSheet(){
-        let sheetVC = FilterSheetViewController( mode: .main, viewModel.sheetFilter)
- 
-
-        if let sheet = sheetVC.sheetPresentationController {
-
-            sheet.detents = [
-                .custom{ context in
-                    300
-                }
-            ]
-
-
-        }
-
+        let sheetVC = FilterSheetViewController( mode: .main, viewModel.sheetFilter,sheetHeight)
+        sheetVC.modalPresentationStyle = .custom
+         sheetVC.transitioningDelegate = sheetVC
+   
         sheetVC.delegate = self
-
+        sheetHeight = 300
         present(sheetVC, animated: true)
+        
+        
 
     }
     
@@ -96,6 +88,7 @@ extension MainViewController: UITableViewDataSource{
             ) as! MainCell
 
         cell.configer( self.viewModel.filteredData[indexPath.section])
+        cell.selectionStyle = .none
             return cell
     }
     

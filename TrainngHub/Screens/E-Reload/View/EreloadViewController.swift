@@ -27,21 +27,25 @@ class EreloadViewController: UIViewController, UIViewControllerTransitioningDele
     }
     
     @IBAction func onFilterTap(_ sender: Any) {
-            
-        let filterVC = FilterSheetViewController( mode: .reload , ViewModel.sheetFilter)
+        var sheetHeight: CGFloat = 370
+        let filterVC = FilterSheetViewController( mode: .reload , ViewModel.sheetFilter,sheetHeight)
         filterVC.delegate = self
+
+
         filterVC.modalPresentationStyle = .custom
-        filterVC.transitioningDelegate = self
-        if let sheet = filterVC.sheetPresentationController {
-            sheet.detents = [
-                .custom{ context in
-                    350
-                }
-            ]
-        }
-        
+        filterVC.transitioningDelegate = filterVC
   
         present(filterVC, animated: true)
+        
+//        let sheetVC = FilterSheetViewController( mode: .main, viewModel.sheetFilter)
+//        sheetVC.modalPresentationStyle = .custom
+//         sheetVC.transitioningDelegate = sheetVC
+//   
+//        sheetVC.delegate = self
+//
+//        present(sheetVC, animated: true)
+//
+//    }
         
             
 
@@ -76,6 +80,7 @@ extension EreloadViewController : UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "EreloadCell", for: indexPath) as! EreloadCell
         
         cell.configer(ViewModel.filteredReloads[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     

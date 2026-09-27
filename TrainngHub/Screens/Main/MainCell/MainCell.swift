@@ -17,7 +17,9 @@ class MainCell: UITableViewCell {
         
         eReloadView.layer.cornerRadius = eReloadView.bounds.height / 2
         
-        contentView.layer.cornerRadius = 16.0
+        contentView.layer.cornerRadius = 20
+        
+        contentView.clipsToBounds = true
         
         contentView.layer.maskedCorners = [
             .layerMinXMinYCorner, // Top Left

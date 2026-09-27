@@ -8,6 +8,7 @@
 import UIKit
 
 class EreloadCell: UITableViewCell {
+    //@IBOutlet var newTage: CornerRibbonView!
     
     @IBOutlet var contentTypeimage: UIImageView!
     @IBOutlet var category: UILabel!
@@ -22,6 +23,9 @@ class EreloadCell: UITableViewCell {
         mainStackView.layer.cornerRadius = 12
         
         mainStackView.clipsToBounds = true
+        
+//        newTage.text = "New"
+//        newTage.ribbonColor = .systemOrange
     }
     
     func configer(_ reload : Reload){

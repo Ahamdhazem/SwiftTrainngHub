@@ -19,10 +19,6 @@ class FilterCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        labelView.layer.cornerRadius = labelView.bounds.height / 2
-        labelView.clipsToBounds = true
-        cellLabel.layer.cornerRadius = cellLabel.bounds.height / 2
-        cellLabel.clipsToBounds = true
     }
     
     func configer(_ latbelText : String){
@@ -42,7 +38,7 @@ class FilterCell: UICollectionViewCell {
 
     private func updateStyle() {
         if isSelected {
-            labelView.backgroundColor = .systemBlue
+            labelView.backgroundColor = UIColor(named: "PrimaryBlue")
         } else {
             labelView.backgroundColor = .systemGray6
         }

@@ -72,7 +72,7 @@ extension UIButton {
     }
     
     func primaryStyle() {
-        self.backgroundColor = .systemBlue
+        self.backgroundColor = UIColor(named: "PrimaryBlue")
         self.layer.cornerRadius =  bounds.height/2
         self.layer.borderWidth = 0
         self.clipsToBounds = true
@@ -92,7 +92,7 @@ extension UIButton {
         
         func clearStyle() {
             self.backgroundColor = .clear
-            self.tintColor = .black
+//            self.tintColor = tintColor.default
             self.setTitleColor(.black, for: .normal)
         }
         

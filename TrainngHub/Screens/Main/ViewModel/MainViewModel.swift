@@ -8,12 +8,10 @@
 import Foundation
 
 class MainViewModel{
-    var selectedMaterial : [SelectedItems]!
     var sheetFilter   : SheetFilters!
     
     init () {
-         selectedMaterial = []
-         sheetFilter = SheetFilters(selectedMaterial,nil)
+        sheetFilter = SheetFilters([],[])
     }
     let data : [MainData] =
     [
@@ -31,17 +29,17 @@ class MainViewModel{
     lazy var filteredData = data
     
     func reset(){
-        sheetFilter.firstFilterQurys = []
+        sheetFilter.firstFilterQurys.querys = []
         materialFilter()
     }
     
     func materialFilter(){
-        if(sheetFilter.firstFilterQurys.isEmpty || sheetFilter.firstFilterQurys[0].text.lowercased() == "all" ){
+        if(  sheetFilter.firstFilterQurys.querys.isEmpty ||  sheetFilter.firstFilterQurys.querys[0].text.lowercased() == "all" ){
             filteredData = data
             return
         }
         
-        let cleanQuris = sheetFilter.firstFilterQurys.map {item in item.text.lowercased()}
+        let cleanQuris =  sheetFilter.firstFilterQurys.querys.map {item in item.text.lowercased()}
         print("cleanQuris \(cleanQuris)")
         
 

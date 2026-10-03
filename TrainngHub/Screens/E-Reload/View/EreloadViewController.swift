@@ -27,28 +27,16 @@ class EreloadViewController: UIViewController, UIViewControllerTransitioningDele
     }
     
     @IBAction func onFilterTap(_ sender: Any) {
-        var sheetHeight: CGFloat = 370
-        let filterVC = FilterSheetViewController( mode: .reload , ViewModel.sheetFilter,sheetHeight)
+        let sheetHeight: CGFloat = 450
+    
+        let filterVC = FilterSheetViewController( mode: .reload                       ,ViewModel.sheetFilter,sheetHeight)
+        
         filterVC.delegate = self
-
-
         filterVC.modalPresentationStyle = .custom
         filterVC.transitioningDelegate = filterVC
-  
+        
         present(filterVC, animated: true)
         
-//        let sheetVC = FilterSheetViewController( mode: .main, viewModel.sheetFilter)
-//        sheetVC.modalPresentationStyle = .custom
-//         sheetVC.transitioningDelegate = sheetVC
-//   
-//        sheetVC.delegate = self
-//
-//        present(sheetVC, animated: true)
-//
-//    }
-        
-            
-
     
     }
     

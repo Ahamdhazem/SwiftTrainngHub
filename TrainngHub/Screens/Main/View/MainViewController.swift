@@ -16,21 +16,19 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     @IBOutlet var imageContaner: CustemView!
     @IBAction func OnTap(_ sender: Any) {
         showTheSheet()
+      
+       
     }
     @IBOutlet var searchFeaild: UITextField!
     @IBAction func onStartSearch(_ sender: Any) {
-        let query : SelectedItems =  SelectedItems(searchFeaild?.text ?? "")
-        viewModel.sheetFilter.firstFilterQurys = []
-        viewModel.sheetFilter.firstFilterQurys.append(query)
+
         viewModel.materialFilter()
         tableView.reloadData()
     }
     let viewModel = MainViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        
         imageContaner.layer.cornerRadius =  imageContaner.bounds.height / 2
         texFeaildStack.layer.cornerRadius =  texFeaildStack.bounds.height / 2
         cellRegestration()
@@ -38,13 +36,13 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        viewModel.reset()
+       // viewModel.reset()
     }
 
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
       //  viewModel.reset()
-        tableView.reloadData()
+       // tableView.reloadData()
     }
     var sheetHeight: CGFloat = 300
     func showTheSheet(){
@@ -56,9 +54,7 @@ class MainViewController: UIViewController, UIViewControllerTransitioningDelegat
         sheetHeight = 300
         present(sheetVC, animated: true)
         
-        
-
-    }
+}
     
     func cellRegestration(){
         let nib = UINib(nibName: "MainCell", bundle: nil)

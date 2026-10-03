@@ -9,11 +9,15 @@ import Foundation
 
 class SheetFilters{
     
-    var firstFilterQurys : [SelectedItems]  = []
-    var secondFilterQuerys : [SelectedItems]?
+    var firstFilterQurys = SelectedQuery()
+    var secondFilterQuerys = SelectedQuery()
     
-    init(_ firstFilterQurys: [SelectedItems], _ secondFilterQuerys: [SelectedItems]? = nil) {
-        self.firstFilterQurys = firstFilterQurys
-        self.secondFilterQuerys = secondFilterQuerys
+    init(_ firstFilterQurys: [SelectedItems], _ secondFilterQuerys: [SelectedItems]) {
+        self.firstFilterQurys.querys = firstFilterQurys
+        self.secondFilterQuerys.querys = secondFilterQuerys
+    }
+    init() {
+        self.firstFilterQurys.querys = []
+        self.secondFilterQuerys.querys = []
     }
 }

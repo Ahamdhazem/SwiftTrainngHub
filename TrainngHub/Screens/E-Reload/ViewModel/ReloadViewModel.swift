@@ -69,10 +69,10 @@ class ReloadViewModel {
     
     func filter(){
         
-        let categoryQuery = sheetFilter.firstFilterQurys.map{$0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
+        let categoryQuery = sheetFilter.firstFilterQurys.querys.map{$0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
         
         
-        let contentQuery = (sheetFilter.secondFilterQuerys ?? []).map{$0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
+        let contentQuery = (sheetFilter.secondFilterQuerys.querys).map{$0.text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()}
         
  
         let isCategorisEmtpy = categoryQuery.isEmpty
